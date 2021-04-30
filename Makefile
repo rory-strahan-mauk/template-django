@@ -23,15 +23,15 @@ export PYTHONPATH := $(CURDIR)/app-name:$(CURDIR)/tests
 # Local setup
 
 app:
-	mv app-name $(APP_NAME)
-	sed -i '' 's/app-name/$(APP_NAME)/g' coverage.cfg
-	sed -i '' 's/app-name/$(APP_NAME)/g' README.md
-	sed -i '' 's/app-name/$(APP_NAME)/g' manage.py
-	sed -i '' 's/app-name/$(APP_NAME)/g' $(APP_NAME)/asgi.py
-	sed -i '' 's/app-name/$(APP_NAME)/g' $(APP_NAME)/settings.py
-	sed -i '' 's/app-name/$(APP_NAME)/g' $(APP_NAME)/urls.py
-	sed -i '' 's/app-name/$(APP_NAME)/g' $(APP_NAME)/wsgi.py
-	sed -i '' 's/app-name/$(APP_NAME)/g' Makefile
+	mv app-name $(app_name)
+	sed -i '' 's/app-name/$(app_name)/g' coverage.cfg
+	sed -i '' 's/app-name/$(app_name)/g' README.md
+	sed -i '' 's/app-name/$(app_name)/g' manage.py
+	sed -i '' 's/app-name/$(app_name)/g' $(app_name)/asgi.py
+	sed -i '' 's/app-name/$(app_name)/g' $(app_name)/settings.py
+	sed -i '' 's/app-name/$(app_name)/g' $(app_name)/urls.py
+	sed -i '' 's/app-name/$(app_name)/g' $(app_name)/wsgi.py
+	sed -i '' 's/app-name/$(app_name)/g' Makefile
 	rm tests/README.md
 	base64 /dev/urandom | (echo "DJANGO_SECRET_KEY=" && head -c50) | tr -d '\n' > .env.local
 
