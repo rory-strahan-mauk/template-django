@@ -1,1 +1,0 @@
-Main app folder. This file will be removed with `make app`.
