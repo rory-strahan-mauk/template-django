@@ -23,6 +23,8 @@ export PYTHONPATH := $(CURDIR)/app-name:$(CURDIR)/tests
 
 app: guard-APP_NAME
 	mv app-name $(APP_NAME)
+	mv static/app-name static/$(APP_NAME)
+	mv templates/app-name templates/$(APP_NAME)
 	sed -i '' 's/app-name/$(APP_NAME)/g' coverage.cfg
 	sed -i '' 's/app-name/$(APP_NAME)/g' README.md
 	sed -i '' 's/app-name/$(APP_NAME)/g' manage.py
@@ -31,7 +33,6 @@ app: guard-APP_NAME
 	sed -i '' 's/app-name/$(APP_NAME)/g' $(APP_NAME)/urls.py
 	sed -i '' 's/app-name/$(APP_NAME)/g' $(APP_NAME)/wsgi.py
 	sed -i '' 's/app-name/$(APP_NAME)/g' Makefile
-	rm static/README.md
 	rm tests/README.md
 	base64 /dev/urandom | (echo "DJANGO_SECRET_KEY=" && head -c50) | tr -d '\n' > .env.local
 	echo "ALLOWED_HOSTS=" >> .env.local
