@@ -35,7 +35,7 @@ app: guard-APP_NAME
 	sed -i '' 's/app-name/$(APP_NAME)/g' Makefile
 	rm tests/README.md
 	base64 /dev/urandom | (echo "DJANGO_SECRET_KEY=" && head -c50) | tr -d '\n' > .env.local
-	echo "ALLOWED_HOSTS=" >> .env.local
+	echo "\nALLOWED_HOSTS=" >> .env.local
 	echo "SECURE_BROWSER_XSS_FILTER=true" >> .env.local
 	echo "SECURE_HSTS_SECONDS=3600" >> .env.local
 	echo "SECURE_HSTS_INCLUDE_SUBDOMAINS=true" >> .env.local
