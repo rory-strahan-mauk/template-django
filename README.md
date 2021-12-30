@@ -4,7 +4,7 @@ Template for starting a new Django app.
 
 ## Prerequisites
 
-* [pyenv](https://github.com/pyenv/pyenv) with [Python 3.9.6](https://www.python.org/downloads/release/python-396/)
+* [pyenv](https://github.com/pyenv/pyenv) with [Python 3.10.0](https://www.python.org/downloads/release/python-396/)
 * [Poetry](https://python-poetry.org/docs/#installation)
 
 ## Initialization
