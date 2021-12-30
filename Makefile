@@ -29,13 +29,14 @@ app: guard-APP_NAME
 	mv app $(APP_NAME)
 	mv static/app static/$(APP_NAME)
 	mv templates/app templates/$(APP_NAME)
-	jinja -D APP_NAME $(APP_NAME) coverage.cfg > coverage.cfg
-	jinja -D APP_NAME $(APP_NAME) manage.py > manage.py
-	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/asgi.py > $(APP_NAME)/asgi.py
-	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/settings.py > $(APP_NAME)/settings.py
-	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/urls.py > $(APP_NAME)/urls.py
-	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/wsgi.py > $(APP_NAME)/wsgi.py
-	jinja -D APP_NAME $(APP_NAME) Makefile > Makefile
+	jinja -D APP_NAME $(APP_NAME) coverage.cfg.j2 > coverage.cfg
+	jinja -D APP_NAME $(APP_NAME) manage.py.j2 > manage.py
+	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/asgi.py.j2 > $(APP_NAME)/asgi.py
+	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/settings.py.j2 > $(APP_NAME)/settings.py
+	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/urls.py.j2 > $(APP_NAME)/urls.py
+	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/wsgi.py.j2 > $(APP_NAME)/wsgi.py
+	sed -i '' 's/app-name/$(APP_NAME)/g' Makefile
+	find . -name "j2" | xargs rm -r
 	base64 /dev/urandom | (echo "DJANGO_SECRET_KEY=" && head -c50) | tr -d '\n' > .env.local
 	echo "\nALLOWED_HOSTS=" >> .env.local
 	echo "SECURE_BROWSER_XSS_FILTER=true" >> .env.local
