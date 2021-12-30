@@ -36,7 +36,7 @@ app: guard-APP_NAME
 	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/urls.py.j2 > $(APP_NAME)/urls.py
 	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/wsgi.py.j2 > $(APP_NAME)/wsgi.py
 	sed -i '' 's/app-name/$(APP_NAME)/g' Makefile
-	find . -name "j2" | xargs rm -r
+	find . -name "*.j2" | xargs rm -r
 	base64 /dev/urandom | (echo "DJANGO_SECRET_KEY=" && head -c50) | tr -d '\n' > .env.local
 	echo "\nALLOWED_HOSTS=" >> .env.local
 	echo "SECURE_BROWSER_XSS_FILTER=true" >> .env.local
