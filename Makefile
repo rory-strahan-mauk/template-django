@@ -7,6 +7,7 @@ COVERAGE_OPTS := --rcfile=$(CURDIR)/coverage.cfg
 FLAKE8 := $(ENV)/bin/flake8
 HONCHO := $(ENV)/bin/honcho
 IPYTHON := $(ENV)/bin/ipython
+JINJA := $(ENV)/bin/jinja
 MYPY := $(ENV)/bin/mypy
 PYTEST := $(ENV)/bin/pytest
 
@@ -29,12 +30,12 @@ app: guard-APP_NAME
 	mv app $(APP_NAME)
 	mv static/app static/$(APP_NAME)
 	mv templates/app templates/$(APP_NAME)
-	jinja -D APP_NAME $(APP_NAME) coverage.cfg.j2 > coverage.cfg
-	jinja -D APP_NAME $(APP_NAME) manage.py.j2 > manage.py
-	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/asgi.py.j2 > $(APP_NAME)/asgi.py
-	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/settings.py.j2 > $(APP_NAME)/settings.py
-	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/urls.py.j2 > $(APP_NAME)/urls.py
-	jinja -D APP_NAME $(APP_NAME) $(APP_NAME)/wsgi.py.j2 > $(APP_NAME)/wsgi.py
+	$(JINJA) -D APP_NAME $(APP_NAME) coverage.cfg.j2 > coverage.cfg
+	$(JINJA) -D APP_NAME $(APP_NAME) manage.py.j2 > manage.py
+	$(JINJA) -D APP_NAME $(APP_NAME) $(APP_NAME)/asgi.py.j2 > $(APP_NAME)/asgi.py
+	$(JINJA) -D APP_NAME $(APP_NAME) $(APP_NAME)/settings.py.j2 > $(APP_NAME)/settings.py
+	$(JINJA) -D APP_NAME $(APP_NAME) $(APP_NAME)/urls.py.j2 > $(APP_NAME)/urls.py
+	$(JINJA) -D APP_NAME $(APP_NAME) $(APP_NAME)/wsgi.py.j2 > $(APP_NAME)/wsgi.py
 	sed -i '' 's/app-name/$(APP_NAME)/g' Makefile
 	find . -name "*.j2" | xargs rm -r
 	base64 /dev/urandom | (echo "DJANGO_SECRET_KEY=" && head -c50) | tr -d '\n' > .env.local
