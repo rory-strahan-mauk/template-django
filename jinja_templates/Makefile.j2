@@ -31,7 +31,8 @@ deps:
 	source .venv/bin/activate
 
 deps-update:
-	poetry add psycopg2@latest \
+	poetry add jinja2@latest \
+			   "psycopg[binary]"@latest \
 			   Django@latest \
 			   djangorestframework@latest \
 			   PyYAML@latest \
