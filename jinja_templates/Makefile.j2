@@ -15,13 +15,13 @@ MANAGE := $(HONCHO) -e .env,.env.local run $(PYTHON) manage.py
 
 HONCHO_TEST := $(HONCHO) run -e .env,.env.test
 
-SOURCEDIRS := testingthis tests
+SOURCEDIRS := {{ APP_NAME }} tests
 TESTARGS ?= tests
 
 
 # Ensure absolute paths
 
-export PYTHONPATH := $(CURDIR)/testingthis:$(CURDIR)/tests
+export PYTHONPATH := $(CURDIR)/{{ APP_NAME }}:$(CURDIR)/tests
 
 
 # Local setup
@@ -81,12 +81,12 @@ test: lint test-db
 
 test-db:
 	if\
-		psql -lqt | cut -d \| -f 1 | grep -qw testingthis_test;\
+		psql -lqt | cut -d \| -f 1 | grep -qw {{ APP_NAME }}_test;\
 	then\
-		echo "testingthis_test db exists" &&\
+		echo "{{ APP_NAME }}_test db exists" &&\
 		$(HONCHO_TEST) db reset -y;\
 	else\
-		createdb testingthis_test &&\
+		createdb {{ APP_NAME }}_test &&\
 		$(HONCHO_TEST) db init &&\
 		$(HONCHO_TEST) db upgrade;\
 	fi
