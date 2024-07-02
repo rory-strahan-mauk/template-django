@@ -1,33 +1,33 @@
 [tool.poetry]
 name = "template-django"
-version = "0.1.1"
+version = "0.1.2"
 description = "Template for starting a new Django app"
 authors = ["Rory Strahan-Mauk <rorystrahanmauk@gmail.com>"]
 license = "GNU Affero General Public License v3.0"
 
 [tool.poetry.dependencies]
-python = "^3.10"
-psycopg2 = "^2.9.6"
-Django = "^4.2.2"
-django-permissions-policy = "^4.16.0"
-djangorestframework = "^3.14.0"
-pyyaml = "^6.0"
-uritemplate = "^4.1.1"
-markdown = "^3.4.3"
-pygments = "^2.15.1"
-django-filter = "^23.2"
+python = "^3.11.9"
+django = "^5.0.6"
+django-filter = "^24.2"
 django-guardian = "^2.4.0"
-jinja2 = "^3.1.2"
-psycopg = {extras = ["binary"], version = "^3.1.9"}
+django-permissions-policy = "^4.20.0"
+djangorestframework = "^3.15.2"
+jinja2 = "^3.1.4"
+markdown = "^3.6"
+psycopg = {extras = ["binary"], version = "^3.2.1"}
+psycopg2 = "^2.9.9"
+pygments = "^2.18.0"
+pyyaml = "^6.0.1"
+uritemplate = "^4.1.1"
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.3.0"
-coverage = "^7.2.7"
-flake8 = "^6.0.0"
+black = "^24.4.2"
+coverage = "^7.5.4"
+flake8 = "^7.1.0"
 honcho = "^1.1.0"
-ipython = "^8.14.0"
-mypy = "^1.3.0"
-pytest = "^7.3.2"
+ipython = "^8.26.0"
+mypy = "^1.10.1"
+pytest = "^8.2.2"
 
 [build-system]
 requires = [

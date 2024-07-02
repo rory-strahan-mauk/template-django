@@ -30,28 +30,14 @@ deps:
 	poetry install
 	source .venv/bin/activate
 
-deps-update:
-	poetry add jinja2@latest \
-			   "psycopg[binary]"@latest \
-			   Django@latest \
-			   djangorestframework@latest \
-			   PyYAML@latest \
-			   uritemplate@latest \
-			   markdown@latest \
-			   Pygments@latest \
-			   django-filter@latest \
-			   django-guardian@latest \
-			   django-permissions-policy@latest
+DEP_LIST := django django-filter django-guardian django-permissions-policy djangorestframework jinja2 markdown 'psycopg[binary]' psycopg2 pygments pyyaml uritemplate
+DEV_DEP_LIST := black coverage flake8 honcho ipython mypy pytest
 
-dev-deps-update:
-	poetry add black@latest \
-			   coverage@latest \
-			   flake8@latest \
-			   honcho@latest \
-			   ipython@latest \
-			   mypy@latest \
-			   pytest@latest \
-			   --group dev
+update-deps:
+	for value in $(DEP_LIST); do poetry add $$value@latest; done
+
+update-deps-dev:
+	for value in $(DEV_DEP_LIST); do poetry add $$value@latest --group dev; done
 
 
 # Django functions
