@@ -4,30 +4,31 @@ version = "0.1.2"
 description = "Template for starting a new Django app"
 authors = ["Rory Strahan-Mauk <rorystrahanmauk@gmail.com>"]
 license = "GNU Affero General Public License v3.0"
+package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.12.7"
-django = "^5.1.2"
-django-filter = "^24.3"
+python = "^3.12.10"
+django = "^5.2"
+django-filter = "^25.1"
 django-guardian = "^2.4.0"
-django-permissions-policy = "^4.22.0"
-djangorestframework = "^3.15.2"
-jinja2 = "^3.1.4"
-markdown = "^3.7"
-psycopg = {extras = ["binary"], version = "^3.2.3"}
+django-permissions-policy = "^4.25.0"
+djangorestframework = "^3.16.0"
+jinja2 = "^3.1.6"
+markdown = "^3.8"
+psycopg = {extras = ["binary"], version = "^3.2.6"}
 psycopg2 = "^2.9.10"
-pygments = "^2.18.0"
+pygments = "^2.19.1"
 pyyaml = "^6.0.2"
 uritemplate = "^4.1.1"
 
 [tool.poetry.group.dev.dependencies]
-black = "^24.10.0"
-coverage = "^7.6.4"
-flake8 = "^7.1.1"
+black = "^25.1.0"
+coverage = "^7.8.0"
+flake8 = "^7.2.0"
 honcho = "^2.0.0"
-ipython = "^8.28.0"
-mypy = "^1.12.1"
-pytest = "^8.3.3"
+ipython = "^9.1.0"
+mypy = "^1.15.0"
+pytest = "^8.3.5"
 
 [build-system]
 requires = [
