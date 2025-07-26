@@ -7,28 +7,28 @@ license = "GNU Affero General Public License v3.0"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.12.10"
-django = "^5.2"
+python = "^3.12.11"
+django = "^5.2.4"
 django-filter = "^25.1"
-django-guardian = "^2.4.0"
-django-permissions-policy = "^4.25.0"
+django-guardian = "^3.0.3"
+django-permissions-policy = "^4.26.0"
 djangorestframework = "^3.16.0"
 jinja2 = "^3.1.6"
-markdown = "^3.8"
-psycopg = {extras = ["binary"], version = "^3.2.6"}
+markdown = "^3.8.2"
+psycopg = {extras = ["binary"], version = "^3.2.9"}
 psycopg2 = "^2.9.10"
-pygments = "^2.19.1"
+pygments = "^2.19.2"
 pyyaml = "^6.0.2"
-uritemplate = "^4.1.1"
+uritemplate = "^4.2.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^25.1.0"
-coverage = "^7.8.0"
-flake8 = "^7.2.0"
+coverage = "^7.10.0"
+flake8 = "^7.3.0"
 honcho = "^2.0.0"
-ipython = "^9.1.0"
-mypy = "^1.15.0"
-pytest = "^8.3.5"
+ipython = "^9.4.0"
+mypy = "^1.17.0"
+pytest = "^8.4.1"
 
 [build-system]
 requires = [
